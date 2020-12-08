@@ -2,23 +2,28 @@
 'use strict';
 
 {
-  const tasks = ['掃除', '買い物', '散歩'];
+  const tasks = [
+    { do: '部屋を片付ける', genre: '掃除' },
+    { do: '牛乳を買う', genre: '買い物' },
+    { do: '散歩する', genre: '運動' }
+  ];
 
-  const title = function () {
+  const title = function() {
     console.log('==================');
     console.log('現在持っているタスク');
     console.log('==================');
   };
   function lists() {
     for (let i = 0; i < tasks.length; i++) {
-      console.log(`${i} : ${tasks[i]}`);
+      console.log(`${i} : [内容]${tasks[i].do}、[ジャンル]${tasks[i].genre}`);
     }
   }
   title();
   lists();
-  const task = prompt('タスクを入力してください');
+  const newTask = prompt('タスクを入力してください');
+  const newGenre = prompt('ジャンルを入力してください');
   function addList() {
-    tasks.push(task);
+    tasks.push({ do: newTask, genre: newGenre });
     title();
     lists();
     alert('新しいタスクを追加しました。');
